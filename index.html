@@ -1,99 +1,308 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Coco Mithas</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coco Mithas - Homemade Coconut Sweets</title>
   <style>
-    body {
-      font-family: Arial;
+    * {
       margin: 0;
-      background: #f5f5f5;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+    }
+
     header {
-      background: #2e7d32;
+      background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
       color: white;
-      padding: 15px;
-      font-size: 24px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-    img.logo {
-      width: 200px;
-      margin-top: 20px;
-      border-radius: 50%;
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
-    section {
+
+    header p {
+      font-size: 18px;
+      font-style: italic;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
     }
-    .product {
-      background: white;
-      margin: 10px;
-      padding: 15px;
-      border-radius: 10px;
-      display: inline-block;
-      width: 200px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    .logo-section {
+      text-align: center;
+      margin: 40px 0;
     }
-    button {
+
+    .logo-section img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border: 5px solid white;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-section img:hover {
+      transform: scale(1.05);
+    }
+
+    .tagline {
+      font-size: 24px;
+      color: #2e7d32;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
       background: #25D366;
+      color: white;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #1fb854;
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+      transform: translateY(-2px);
+    }
+
+    section {
+      margin: 50px 0;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      font-size: 32px;
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #25D366;
+      padding-bottom: 15px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .product {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border-left: 5px solid #25D366;
+    }
+
+    .product:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+    }
+
+    .product h3 {
+      color: #2e7d32;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #25D366;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .order-btn {
+      width: 100%;
+      background: #2e7d32;
       color: white;
       padding: 12px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
+
+    .order-btn:hover {
+      background: #1b5e20;
+      box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+    }
+
+    .contact-section {
+      text-align: center;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      font-size: 16px;
+    }
+
     footer {
       background: #222;
       color: white;
-      padding: 10px;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 50px;
+      box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 36px;
+      }
+
+      section {
+        padding: 20px 15px;
+      }
+
+      section h2 {
+        font-size: 24px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-section img {
+        width: 200px;
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  🌴 Coco Mithas
+  <h1>🌴 Coco Mithas 🌴</h1>
+  <p>Har bite me ghar ki mithaas</p>
 </header>
 
-<img src="cocomithas.jpeg" class="logo">
-
-<section>
-  <h2>Har bite me ghar ki mithaas</h2>
-  <p>Fresh homemade coconut sweets – Direct delivery</p>
-
-  <a href="https://wa.me/918303560658">
-    <button>Order on WhatsApp</button>
-  </a>
-</section>
-
-<section>
-  <h2>Our Products</h2>
-
-  <div class="product">
-    <h3>Coconut Laddoo</h3>
-    <p>₹200 / box</p>
+<div class="container">
+  <div class="logo-section">
+    <img src="cocomithas.jpeg" alt="Coco Mithas Logo">
+    <p class="tagline">Fresh Homemade Coconut Sweets – Direct Delivery</p>
+    <a href="https://wa.me/918303560658" class="cta-button">🛒 Order on WhatsApp</a>
   </div>
 
-  <div class="product">
-    <h3>Coconut Barfi</h3>
-    <p>₹250 / box</p>
-  </div>
+  <section>
+    <h2>✨ Our Premium Products</h2>
+    <div class="products-grid">
+      <div class="product">
+        <h3>🥥 Coconut Laddoo</h3>
+        <p class="product-desc">Soft, melt-in-mouth coconut laddoos made with fresh grated coconut and pure ghee. A perfect sweet treat!</p>
+        <div class="price">₹200 / box</div>
+        <a href="https://wa.me/918303560658?text=I%20want%20to%20order%20Coconut%20Laddoo" class="order-btn">Order Now</a>
+      </div>
 
-  <div class="product">
-    <h3>Gift Pack</h3>
-    <p>₹400</p>
-  </div>
+      <div class="product">
+        <h3>🍬 Coconut Barfi</h3>
+        <p class="product-desc">Rich and creamy coconut barfi with a perfect blend of milk and coconut. Handcrafted with love!</p>
+        <div class="price">₹250 / box</div>
+        <a href="https://wa.me/918303560658?text=I%20want%20to%20order%20Coconut%20Barfi" class="order-btn">Order Now</a>
+      </div>
 
-</section>
+      <div class="product">
+        <h3>🎁 Gift Pack</h3>
+        <p class="product-desc">Assorted mix of our best coconut sweets. Perfect for gifting to loved ones on special occasions!</p>
+        <div class="price">₹400</div>
+        <a href="https://wa.me/918303560658?text=I%20want%20to%20order%20Gift%20Pack" class="order-btn">Order Now</a>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>📍 Varanasi</p>
-  <p>📱 +91 8303560658</p>
-</section>
+  <section class="contact-section">
+    <h2>📞 Get in Touch</h2>
+    <div class="contact-info">
+      <div class="contact-card">
+        <h3>📍 Location</h3>
+        <p>Varanasi, UP</p>
+      </div>
+      <div class="contact-card">
+        <h3>📱 Phone</h3>
+        <p>+91 8303560658</p>
+      </div>
+      <div class="contact-card">
+        <h3>💬 WhatsApp</h3>
+        <p><a href="https://wa.me/918303560658" style="color: white; text-decoration: none;">Chat with us</a></p>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 <footer>
-  © 2026 Coco Mithas | Thank You!
+  <p>© 2026 Coco Mithas - Homemade with ❤️</p>
+  <p>Fresh Coconut Sweets | Direct Delivery to Your Doorstep</p>
+  <p>Thank You for Supporting Local Business!</p>
 </footer>
 
 </body>
